@@ -1,10 +1,23 @@
 <html>
    <head>
       <title>Capstone Project</title>
+      <style>
+         .image-container {
+            display: inline-block;  /* Shrink container to the size of its content */
+            text-align: center;    /* Center content */
+         }
+
+         .image-container img {
+            width: 100%;  /* Make image take full width of its parent */
+            height: auto; /* Keep image aspect ratio */
+         }
+      </style>
    </head>
    <body>
-      <h1 style="text-align:center;">Welcome To LittleLemon Restaurant</h1>
-      {% load static %}
-      <img src="{% static 'restaurant/littleLemon.png' %}">
+      <div class="image-container">
+         <h1>Welcome To LittleLemon Restaurant</h1>
+         {% load static %}
+         <img src="{% static 'restaurant/littleLemon.png' %}">
+      </div>
    </body>
 </html>
