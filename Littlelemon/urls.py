@@ -18,14 +18,15 @@ from django.contrib import admin
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 from restaurant.views import UserViewSet
-
+from django.views.generic import TemplateView
 router = DefaultRouter()
 router.register(r'users', UserViewSet)
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("restaurant/", include('restaurant.urls')),
-    path('', include(router.urls)),
+    path("", TemplateView.as_view(template_name='index.html')),
+    path("api/", include('restaurant.urls')),
+    path('api/', include(router.urls)),
     path('auth/', include('djoser.urls')),
     path('auth/', include('djoser.urls.authtoken')),
 ]
